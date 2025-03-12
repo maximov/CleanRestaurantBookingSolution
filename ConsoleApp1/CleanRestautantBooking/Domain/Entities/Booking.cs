@@ -29,6 +29,26 @@ namespace CleanRestaurantBooking.Domain.Entities
             if (string.IsNullOrWhiteSpace(newStatus))
                 throw new ArgumentException("Статус не может быть пустым", nameof(newStatus));
             Status = newStatus;
-        }        
+        }  
+
+        public void UpdateDateTime(string newDate, string newTime)
+        {
+            if (string.IsNullOrWhiteSpace(newDate))
+                throw new ArgumentException("Дата не может быть пустой", nameof(newDate));
+
+            if (string.IsNullOrWhiteSpace(newTime))
+                throw new ArgumentException("Время не может быть пустым", nameof(newTime));
+
+            Date = newDate;
+            Time = newTime;
+        }
+
+        public void UpdateQuantitiesClient(int newQuantity)
+        {
+            if (newQuantity <= 0)
+                throw new ArgumentException("Колиичество гостей должно быть больше нуля", nameof(newQuantity));
+
+            QuantitiesClient = newQuantity;
+        }
     }    
 }
