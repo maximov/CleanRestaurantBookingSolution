@@ -8,13 +8,13 @@ namespace CleanRestaurantBooking.Infrastructure.Persistence
     {
         private readonly Dictionary<int, Client> _client = new();
 
-        public Client Add(Client client)
+        public void Add(Client client)
         {
             if (_client.ContainsKey(client.Id))
                 throw new InvalidOperationException("Клиент уже добавлен");
 
             _client[client.Id] = client;
-            return client;
+            //return client;
         }
 
         public void Delete(int id)
