@@ -17,5 +17,25 @@ namespace CleanRestaurantBooking.Domain.Entities
             Phone = phone;
             Email = email;
         }
+
+        public void UpdateContactInfo(string? name = null, int? phone = null, string? email = null)
+        {
+            if (name != null)
+            {
+                if (name == "")
+                    throw new ArgumentException("Имя не может быть пустым");
+                Name = name;
+            }
+                
+            if (phone != null)
+            {
+                if (phone > 0 && (((int)phone).ToString().Length == 9 || ((int)phone).ToString().Length == 10))
+                    throw new ArgumentException("Номер указан некорректно");
+                Phone = (int)phone;
+            }
+                
+            if (email != null)
+                Email = email;
+        }
     }
 }
