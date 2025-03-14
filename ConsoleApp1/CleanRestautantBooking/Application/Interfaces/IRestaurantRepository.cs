@@ -9,5 +9,7 @@ namespace CleanRestaurantBooking.Application.Interfaces
         void Add(Restaurant restaurant);
         void Update(Restaurant restaurant);
         void Delete(int id);
+
+        IEnumerable<Restaurant> GetAll();
     }
 }
