@@ -1,0 +1,12 @@
+
+venv/
+__pycache__/
+bin/
+obj/
+.vscode/
+
+*.user
+*.suo
+*.cache
+*.log
+*.tmp
