@@ -11,12 +11,25 @@ namespace CleanRestaurantBooking.Application.Services
         private readonly IClientRepository _clientRepository;
         private int _currentBookingId = 1;
 
+        public BookingService(IBookingRepository bookingRepository, 
+                              IRestaurantRepository restaurantRepository,
+                              IClientRepository clientRepository)
+        {
+            _bookingRepository = bookingRepository;
+            _restaurantRepository = restaurantRepository;
+            _clientRepository = clientRepository;
+        }
+
         public Booking CreateBooking(int restaurantId, int clientId, 
                     string date, string time, int quantitiesClient)
                 {
                     var restaurant = _restaurantRepository.GetById(restaurantId);
                     if (restaurant == null)
                         throw new Exception("Ресторан не найден");
+
+                    var client = _clientRepository.GetById(clientId);
+                    if (client == null)
+                        throw new Exception("Клиент не найден");
 
                     var existingBooking = _bookingRepository.GetBookingByRestAndDate(restaurantId, date);
 
@@ -88,6 +101,11 @@ namespace CleanRestaurantBooking.Application.Services
         public IEnumerable<Booking> GetBookingByDate(int restaurantId, string date)
         {
             return _bookingRepository.GetBookingByRestAndDate(restaurantId, date);
+        }
+
+        public Booking? GetBookingById(int bookingId)
+        {
+            return _bookingRepository.GetById(bookingId);
         }
     }
 }

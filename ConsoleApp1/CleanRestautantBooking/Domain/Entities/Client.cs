@@ -7,10 +7,10 @@ namespace CleanRestaurantBooking.Domain.Entities
     {
         public int Id {get; private set;}
         public string Name {get; private set;}
-        public int Phone {get; private set;}
+        public long Phone {get; private set;}
         public string? Email {get; private set;}
 
-        public Client(int id, string name, int phone, string? email = null)
+        public Client(int id, string name, long phone, string? email = null)
         {
             Id = id;
             Name = name;
@@ -18,7 +18,7 @@ namespace CleanRestaurantBooking.Domain.Entities
             Email = email;
         }
 
-        public void UpdateContactInfo(string? name = null, int? phone = null, string? email = null)
+        public void UpdateContactInfo(string? name = null, long? phone = null, string? email = null)
         {
             if (name != null)
             {
@@ -29,9 +29,9 @@ namespace CleanRestaurantBooking.Domain.Entities
                 
             if (phone != null)
             {
-                if (phone > 0 && (((int)phone).ToString().Length == 9 || ((int)phone).ToString().Length == 10))
+                if (phone > 0 && (((long)phone).ToString().Length == 9 || ((long)phone).ToString().Length == 10))
                     throw new ArgumentException("Номер указан некорректно");
-                Phone = (int)phone;
+                Phone = (long)phone;
             }
                 
             if (email != null)

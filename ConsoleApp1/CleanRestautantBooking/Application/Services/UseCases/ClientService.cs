@@ -14,7 +14,7 @@ namespace CleanRestaurantBooking.Application.Services
             _clientRepository = clientRepository;
         }
 
-        public Client AddClient(string name, int phone, string? email=null)
+        public Client AddClient(string name, long phone, string? email=null)
         {
             // todo Добавить проверку на уникальность
             // todo Добавить регулярку для email
@@ -30,7 +30,7 @@ namespace CleanRestaurantBooking.Application.Services
             return newClient;
         }
 
-        public void UpdateClient(int clientId, string? newName=null, int? newPhone=null, string? newEmail=null)
+        public void UpdateClient(int clientId, string? newName=null, long? newPhone=null, string? newEmail=null)
         {
             var client = _clientRepository.GetById(clientId) ?? throw new InvalidOperationException("Клиент не найден");
 

@@ -10,5 +10,6 @@ namespace CleanRestaurantBooking.Application.Interfaces
         void Update(Booking booking);
         void Delete(int id);
         IEnumerable<Booking> GetBookingByRestAndDate(int restaurantId, string date);
+        
     }
 }
