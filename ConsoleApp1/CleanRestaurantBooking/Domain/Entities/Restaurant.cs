@@ -10,10 +10,10 @@ namespace CleanRestaurantBooking.Domain.Entities
         public string Name {get; private set;}
         public string Address {get; private set;}
         public int TotalTables {get; private set;}        
-        public int? Phone {get; private set;}
+        public long? Phone {get; private set;}
         public string? Description {get; private set;}
 
-        public Restaurant(int id, string name, string address, int totalTables, int? phone=null, string? description=null)
+        public Restaurant(int id, string name, string address, int totalTables, long? phone=null, string? description=null)
         {
             Id = id;
             Name = name;
