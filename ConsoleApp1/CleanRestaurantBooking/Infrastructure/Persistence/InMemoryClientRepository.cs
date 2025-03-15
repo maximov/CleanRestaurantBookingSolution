@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace CleanRestaurantBooking.Infrastructure.Persistence
 {
-    public class InMemoryClientRepository : IClientRepository
+    public class InMemoryClientRepository //: IClientRepository
     {
         private readonly Dictionary<int, Client> _client = new();
 

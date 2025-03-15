@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace CleanRestaurantBooking.Infrastructure.Persistence
 {
-    public class InMemoryBookingRepository : IBookingRepository
+    public class InMemoryBookingRepository //: IBookingRepository
     {
         private readonly Dictionary<int, Booking> _booking = new();
 
