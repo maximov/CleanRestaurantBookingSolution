@@ -4,12 +4,12 @@ namespace CleanRestaurantBooking.Application.Interfaces
 {
     public interface IRestaurantRepository
     {
-        Restaurant? GetById(int id);
+        Restaurant? GetById(int id, string? query=null);
 
-        void Add(Restaurant restaurant);
-        void Update(Restaurant restaurant);
-        void Delete(int id);
+        void Add(Restaurant restaurant, string? query=null);
+        void Update(Restaurant restaurant, string? query=null);
+        void Delete(int id, string? query=null);
 
-        IEnumerable<Restaurant> GetAll();
+        IEnumerable<Restaurant> GetAll(string? query=null);
     }
 }
