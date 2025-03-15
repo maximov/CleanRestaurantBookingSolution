@@ -14,7 +14,7 @@ namespace CleanRestaurantBooking.Infrastructure.Persistence
             _pool = pool;
         }
 
-        public void Add(Restaurant restaurant, string query)
+        public void Add(Restaurant restaurant, string? query)
         {
             using var connection = _pool.AcquireConnection();
             using var command = new NpgsqlCommand(query, connection);
@@ -30,7 +30,7 @@ namespace CleanRestaurantBooking.Infrastructure.Persistence
             command.ExecuteNonQuery();
         }
 
-        public void Delete(int id, string query)
+        public void Delete(int id, string? query)
         {
             using var connection = _pool.AcquireConnection();
             using var command = new NpgsqlCommand(query, connection);
@@ -40,7 +40,7 @@ namespace CleanRestaurantBooking.Infrastructure.Persistence
             command.ExecuteNonQuery();
         }
 
-        public IEnumerable<Restaurant> GetAll(string query)
+        public IEnumerable<Restaurant> GetAll(string? query)
         {
             using var connection = _pool.AcquireConnection();
             using var command = new NpgsqlCommand(query, connection);
@@ -63,7 +63,7 @@ namespace CleanRestaurantBooking.Infrastructure.Persistence
         }
 
 
-        public Restaurant? GetById(int id, string query)
+        public Restaurant? GetById(int id, string? query)
         {
             using var connection = _pool.AcquireConnection();
             using var command = new NpgsqlCommand(query, connection);
@@ -86,7 +86,7 @@ namespace CleanRestaurantBooking.Infrastructure.Persistence
             return null;
         }
 
-        public void Update(Restaurant restaurant, string query)
+        public void Update(Restaurant restaurant, string? query)
         {
             using var connection = _pool.AcquireConnection();
             using var command = new NpgsqlCommand(query, connection);
